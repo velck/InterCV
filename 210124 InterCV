@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset='utf-8'>
+    <title>lvck</title>
+    <style media='all'>
+        * {
+            color: Olive;
+            font-size: 20px;
+            background: SeaShell;
+        }
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background: Olive;
+        }
+        header {
+            display: flex;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        #returns {
+            visibility: hidden;
+        }
+    </style><style media='screen and (orientation: portrait)'> 
+        * {font-size: 5vw;}
+        body {
+            margin: 0px;/*mobile-specific and tablet-portrait-specific*/
+            width: 100vw;/*mobile-all-specific*/
+            height: 100vh;/*mobile-all-specific and tablet-all-specific*/
+        }
+        header {
+            /*flex-direction: row; mobile-portrait-specific and tablet-portrait-specific*/
+            padding: 0px 20px 0px 20px;
+            height: 8.8vh;/*mobile-portrait-specific*/
+        }
+        h1 {
+            margin: 0px;
+            font-size: 10vw;/*mobile-specific*/
+        }
+        .presentation {
+            margin-top: 0.4vh;/*mobile-portrait-specific*/
+            height: 40vh;/*mobile-portrait-specific*/
+            visibility: visible;
+        }
+        #employer-slide, #programmer-slide, #music-critic-slide, #master-student-slide, #workshop-mentor-slide, #cultural-worker-slide, #musician-slide {
+            height: 0px;
+            visibility: hidden;
+        }
+        
+        
+        #programmer-slide {
+            display: grid;
+            grid-template-rows: 10vh 10vh 10vh 10vh;/*mobile-portrait-specific*/
+            grid-template-columns: 25vw 25vw 25vw 25vw;/*mobile-portrait-specific*/
+            grid-template-areas:
+                'skills skills skills skills'
+                'finding finding finding finding'
+                'terminal hourglass os github'
+                'vision vision vision vision';
+        }
+        #skills {
+            grid-area: skills;
+        }
+        #finding {
+            grid-area: finding;
+        }
+        #terminal {
+            grid-area: terminal;
+        }
+        #hourglass {
+            grid-area: hourglass;
+        }
+        #os {
+            grid-area: os;
+        }
+        #github {
+            grid-area: github;
+        }
+        #vision {
+            grid-area: vision;
+        }
+        #terminal-projection, #hourglass-projection, #os-projection, #github-projection {
+            height: 0px;
+            visibility: hidden;
+        }
+
+        #employer {
+            width: 100vw;/*mobile-portrait-specific*/
+            height: 10vh;/*mobile-portrait-specific*/
+            margin-top: 0.4vh;/*mobile-portrait-specific*/
+        }
+        
+        .professional-path {
+            margin-top: 0.4vh;/*mobile-portrait-specific*/
+            width: 100vw;/*mobile-portrait-specific*/
+            display: grid;
+            grid-template-columns: repeat(4, minmax(90px, 25vw));/*mobile-portrait-specific*/
+            grid-template-rows: repeat(3, 10vh);/*mobile-portrait-specific*/
+            grid-template-areas: 
+                'programmer programmer programmer programmer'
+                'music-critic master-student workshop-mentor cultural-worker'
+                'musician musician musician musician';
+            grid-gap: 0.4vh;/*mobile-portrait-specific*/
+            text-align: center;
+            letter-spacing: 0.4vh;/*mobile-all-specific*/
+            visibility: visible;
+            background: Olive;
+        }
+
+        #programmer {
+            grid-area: programmer;
+            
+        }
+        #cultural-worker {
+            grid-area: cultural-worker;
+            
+        }
+        #workshop-mentor {
+            grid-area: workshop-mentor;
+            
+        }
+        #master-student {
+            grid-area: master-student;
+            
+        }
+        #music-critic {
+            grid-area: music-critic;
+            
+        }
+        #musician {
+            grid-area: musician;
+            
+        }
+        button {
+            border-width: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+        }
+        footer {
+            position: absolute;
+            bottom: 0px;/*mobile-portrait-specific*/
+            margin-top: 0.4vh;/*mobile-portrait-specific*/
+            width: 100vw;/*mobile-portrait-specific*/
+            height: 8.8vh;/*mobile-portrait-specific*/
+            
+        }
+    </style><style media='screen and (orientation: landscape)'>
+        body {
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        header {
+            display: block;
+            position: absolute;
+            left: 50%;
+            width: 50%;
+            height: 15.5%;
+            background: Salmon;
+        }
+        .presentation {
+            margin: 0px;
+            width: 50%;
+            height: 100%;            
+        }
+        #employer-slide, #programmer-slide, #music-critic-slide, #master-student-slide, #workshop-mentor-slide, #cultural-worker-slide, #musician-slide {
+            height: 0px;
+            visibility: hidden;
+        }
+        #programmer-slide {
+            grid-template-rows: 25% 25% 25% 25%;
+            grid-template-columns: 12.5% 12.5% 12.5% 12.5%;    
+        }
+        .projection {
+            width: 50%;
+        }
+        #terminal-projection, #hourglass-projection, #os-projection, #github-projection {
+            width: 50%;
+            height: 0px;
+            visibility: hidden;
+        }
+        #employer {
+            position: absolute;
+            top: 16.9%;
+            left: 50%;
+            width: 50%;
+            height: 15.5%;
+            margin: 0px;
+            background: Pink;
+        }
+        .professional-path {
+            position: absolute;
+            top: 33.8%;
+            left: 50%;
+            margin: 0px;
+            width: 50%;
+            height: 49.3%;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(12.5vw, 12.5vw));
+            grid-template-rows: repeat(3, minmax(15.5vh, 15.5vh));
+            grid-gap: 1.4vh 0px;
+            grid-template-areas: 
+                'programmer programmer programmer programmer'
+                'music-critic master-student workshop-mentor cultural-worker'
+                'musician musician musician musician';
+            background: Olive;
+        }
+        #programmer {
+            grid-area: programmer;
+        }
+        #cultural-worker {
+            grid-area: cultural-worker;
+        }
+        #workshop-mentor {
+            grid-area: workshop-mentor; 
+        }
+        #master-student {
+            grid-area: master-student;
+        }
+        #music-critic {
+            grid-area: music-critic;
+        }
+        #musician {
+            grid-area: musician;
+        }
+        button {
+            border-width: 0px;
+            margin: 0px;
+            padding: 0px;
+        }
+        footer {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 50%;
+            height: 15.5%;
+            background: Teal;
+        }
+    </style></head><body><header id='header'>
+        <h1 id='heading'>Lev</h1>
+        <!--<a href='#' id='about'>About</a>
+        <a href='#' id='contacts'>Contact</a>-->
+    </header><section class='presentation' id='presentation'>
+        <div id='employer-slide'>
+        </div>
+        <div id='programmer-slide'>
+            <div id='skills'>JavaScript, HTML, CSS</div>
+            <div id='finding'>Experience and passion  outweigh education certificates.</div>
+            <button type='button' class='projects' id='terminal'>Terminal</button>
+            <button type='button' class='projects' id='hourglass'>Hourglass</button>
+            <button type='button' class='projects' id='os'>OS</button>
+            <button type='button' class='projects' id='github'>GitHub</button>
+            <button type='button' class='projects' id='vision'>Vision</button>
+        </div>
+        <div id='music-critic-slide'>
+            Clear articulation makes a project worthwhile in the eyes of others.
+            <br>
+            Thorough revision is one of the most crucial steps of product improvement.
+        </div>
+        <div id='master-student-slide'>
+            Home is not indebtedness to one’s education. Rather, it is a place and a condition where one’s work is accepted.
+            <br>
+            Concealing one’s interests is never beneficial.
+        </div>
+        <div id='workshop-mentor-slide'>
+            Teaching and giving gets you future coworkers and friends, even if the subject is not always relevant for you.
+        </div>
+        <div id='cultural-worker-slide'>
+            Art – or cultural management – is far from being the only creative field.
+            <br>
+            Being overworked is counterproductive.
+        </div>
+        <div id='musician-slide'>
+            I like mastering a language and using it to construct unprecedented things.<br> 
+            Art is sublime, but it cannot replace the real world.
+        </div>
+    </section><section class='projection' id='projection'>
+        <div id='terminal-projection'><iframe src='https://cdpn.io/lvck/debug/XWjZBLQ/LDAmdnVQRpzr' title='Terminal' sandbox></iframe></div>
+        <div id='hourglass-projection'>This will be an hourglass soon.</div>
+        <div id='os-projection'>This will be an os soon.</div>
+        <div id='github-projection'>This will be a github frame soon.</div>
+    </section><button type='button' class='reveals' id='employer'>why your company?</button><section class='professional-path' id='professional-path'>
+        <button type='button' class='reveals' id='programmer'>programmer</button>
+        <button type='button' class='reveals' id='music-critic'>music critic</button>
+        <button type='button' class='reveals' id='master-student'>master student</button>
+        <button type='button' class='reveals' id='workshop-mentor'>workshop mentor</button>
+        <button type='button' class='reveals' id='cultural-worker'>cultural worker</button>
+        <button type='button' class='reveals' id='musician'>musician</button>
+    </section><footer id='footer'><button type='button' class='returns' id='returns'>Return</button></footer><script>
+        //DOM->JS
+        
+        //ALL BUTTONS
+        let buttonArray = document.querySelectorAll('button');
+        
+        //RETURN BUTTONS
+        let returnButtons = document.querySelector("button[class^='returns']");
+        function returnHome() {
+            let projectionToHide = projection;
+            projection.style = '';
+            let projectionSlidesToHide = projectionArray;
+            for (let i = 0; i < projectionSlidesToHide.length; i++) {
+                projectionSlidesToHide[i].style = '';
+                if (projectionSlidesToHide[i].childNodes.length != 0) {}
+            }
+            let professionalPathToUnhide = professionalPath;
+            professionalPathToUnhide.style = '';
+            //professional path buttons to unhide:
+            for (let i = 6; i < buttonArray.length - 1; i++) {
+                buttonArray[i].style = '';
+            }
+            let presentationToUnhide = presentation;
+            presentation.style = '';
+            returnButtons.style = '';
+        }
+        returnButtons.addEventListener('click', returnHome, false);
+
+        //REVEAL BUTTONS
+        let projectionArray = document.querySelectorAll("div[id$='projection']");
+        let slideArray = document.querySelectorAll("div[id$='slide']");
+        function reveal() {
+            //Hide currently visible projections and slides first:
+            for (let i = 0; i < projectionArray.length; i++) {
+                projectionArray[i].style.setProperty('visibility', 'hidden');
+            }
+            for (let i = 0; i < slideArray.length; i++) {
+                slideArray[i].style.setProperty('visibility', 'hidden');
+            }
+            let slideID = `#${ event.currentTarget.getAttribute('id') }-slide`;//get slide id via event.currentTarget;
+            let slide = document.querySelector(slideID);//define a slide variable (an html element incl. all attributes), and set visibility to visible;
+            slide.style.setProperty('visibility', 'visible');
+            let slideChildrenArray = document.querySelectorAll(`${ slideID } *`);
+            console.log(slideChildrenArray);
+            for (let i = 0; i < slideChildrenArray.length; i++) {
+                slideChildrenArray[i].style.setProperty('visibility', 'visible');
+            }
+            
+        }
+        let revealButtons = document.querySelectorAll("button[class^='reveals']"); //provide a node list to loop through and install event listeners on all items;
+        for (let i = 0; i < revealButtons.length; i++) {
+            revealButtons[i].addEventListener('click', reveal, false);
+        }
+        //PROJECTION BUTTONS
+        const portraitOrLaptop = window.matchMedia( '( orientation: portrait ) or ( min-width: 1300px )' );
+        let professionalPath = document.querySelector('.professional-path');
+        let presentation = document.querySelector('.presentation');
+        let projectionSurface = document.querySelector('.projection'); 
+        let projectionButtons = document.querySelectorAll("button[class^='projects']");
+        console.log(projectionButtons);
+        
+        function project() {
+            //hide presentation and professional-path sections:
+            if ( portraitOrLaptop.matches ) {
+                let professionalPathToHide = professionalPath;
+                professionalPathToHide.style.setProperty('visibility', 'hidden');
+                professionalPathToHide.style.setProperty('height', '0px');
+                for (let i = 6; i < buttonArray.length; i++) {
+                    buttonArray[i].style.setProperty('height', '0px');
+                }
+            }
+            
+            let presentationToHide = presentation;
+            presentationToHide.style.setProperty('visibility', 'hidden');
+            presentationToHide.style.setProperty('height', '0px');
+            
+            let projectionButtonsToHide = projectionButtons;
+            console.log(projectionButtonsToHide);
+            for (let i = 0; i < projectionButtonsToHide.length; i++) {
+                projectionButtonsToHide[i].style.setProperty('visibility', 'hidden');
+            }
+            
+            let slideToHide = document.querySelector('#programmer-slide');
+            slideToHide.style.setProperty('visibility', 'hidden');
+            
+            //projection surface to be extended:
+            if ( portraitOrLaptop.matches == false ) {
+                console.log('match');
+                projectionSurface.style.setProperty('height', '100%');
+            }
+            else {/*add the portrait mode*/}
+            
+            //an appropriate section to be made visible:
+            let projectionID = `#${ event.currentTarget.getAttribute('id') }-projection`;
+            console.log(projectionID);
+            let projection = document.querySelector(projectionID);
+            projection.style.setProperty('visibility', 'visible');
+            if ( portraitOrLaptop.matches ) {
+                projection.style.setProperty('height', '81.6vh');
+                projection.style.setProperty('width', '100%');
+            }
+            else {
+            projection.style.setProperty('height', '100%');
+            projection.style.setProperty('width', '100%');
+            }
+            //provide escape functionionality
+            
+            returnButtons.style.setProperty('visibility', 'visible');
+        }
+        
+        //PROJECTION BUTTONS - END
+        //TEST NODE TRAVERSAL
+        let selectorString = '.professional-path';
+        let nodeArray = [];
+        let j = 0;
+        
+        function testNodeTraversal() {
+            nodeArray.push(selectorString);
+            console.log(nodeArray);
+            let colorTarget = document.querySelector(selectorString);
+            colorTarget.style.setProperty('background', 'crimson');
+            selectorString = `${ selectorString } *`;
+            let selectedElement = document.querySelector(selectorString);
+            if (selectedElement == null) {
+                selectorString = selectorString.slice(0, selectorString.length - 2);//return to reference level of recursion
+                selectorString = `${ selectorString } ~ *`;
+                if (document.querySelector(selectorString) == null) {/*go one up*/
+                    selectorString = selectorString.slice(0, selectorString.length - 4);
+                    selectedElement = document.querySelector(selectorString);
+                    if (selectedElement.parentNode == null) {}
+                    else {selectedElement = selectedElement.parentNode;
+                          selectorString = selectedElement.getAttribute('id');
+                          console.log(selectorString);
+                          selectorString = `#${ selectorString } ~ *`;
+                          selectedElement = document.querySelector(selectorString);
+                          selectorString = selectedElement.getAttribute('id');
+                          selectorString = `#${ selectedElement }`;
+                          testNodeTraversal();
+                         }
+                    }
+                else {/*go one to the right*/selectedElement = document.querySelector(selectorString);
+                      if (selectedElement == null) {selectorString = selectorString.slice(0, selectorString.length - 4);
+                                                    selectedElement = document.querySelector(selectorString);
+                                                    selectedElement = selectedElement.parentNode;
+                                                    selectorString = selectedElement.getAttribute('id');
+                                                    selectorString = `#${ selectorString } ~ *`;
+                                                    selectedElement = document.querySelector(selectorString);
+                                                    selectorString = selectedElement.getAttribute('id');
+                                                    selectorString = `#${ selectorString }`;
+                                                    testNodeTraversal();
+                      }
+                      else {selectorString = selectedElement.getAttribute('id');
+                            selectorString = `#${ selectorString }`; 
+                            testNodeTraversal();
+                           }
+                     }
+            }
+            else {selectorString = selectedElement.getAttribute('id');
+                  selectorString = `#${ selectorString }`;
+                  testNodeTraversal();
+                 }
+        }
+        let testArray = [];
+        let k = -1;
+        let focusNode = document.querySelector('body');
+        function secondTest(focusNode) {
+            if (focusNode.childNodes != null) {
+                if (focusNode.length == undefined) {
+                testArray.push(focusNode.childNodes);
+                k = k + 1;
+                console.log(k);
+                focusNode = testArray[k];
+                secondTest(focusNode);
+                }
+                else {
+                    for (let g = 0; g < focusNode.length; g++) {
+                        testArray.push(focusNode.childNodes[g]);
+                    }
+                    k = k + 1;
+                    focusNode = testArray[k];
+                    secondTest(focusNode);
+                }
+            }
+            else {
+                k = k + 1;
+                if (k > testArray.length - 1) {
+                    console.log(testArray);
+                    for (let h = 0; h < testArray.length; h++) {
+                    }
+                    focusNode = testArray[0];
+                    testArray.unshift(focusNode.parentNode);
+                    console.log(focusNode.parentNode);
+                }
+                else {
+                    focusNode = testArray[k];
+                    secondTest(focusNode);
+                }
+            }
+        }
+
+        
+        //END TEST NODE TRAVERSAL
+        //PROJECTION BUTTONS EVENT LISTENER
+        //loop through the node list and install event listeners on all items;
+        for (let i = 0; i < projectionButtons.length; i++) {
+            projectionButtons[i].addEventListener('click', project, false);
+        }
+        //PROJECTION BUTTONS EVENT LISTENER END
+        //FOR SMARTPHONES AND TABLETS IN LANDSCAPE ORIENTATION
+        
+        function expandButtonPanel() {
+            //hide redundant header and employer elements:
+            let headerElement = document.querySelector('header');
+            headerElement.style.setProperty('visibility', 'hidden');
+            headerElement.style.setProperty('width', '0px');
+            let employerElement = document.querySelector('#employer');
+            employerElement.style.setProperty('visibility', 'hidden');
+            employerElement.style.setProperty('width', '0px');
+            //expand the grid:
+            let professionalPathToExpand = document.querySelector('.professional-path');
+            /*professionalPathToExpand.style.setProperty('width', '50%');
+            professionalPathToExpand.style.setProperty('left', '50%');
+            professionalPathToExpand.style.setProperty('grid-template-rows', 'repeat(4, 1fr)');
+            professionalPathToExpand.style.setProperty('grid-template-areas', 'programmer programmer programmer\' \'workshop-mentor workshop-mentor cultural-worker cultural-worker\' \'music-critic music-critic master-student master-student\' \'musician musician musician musician');*/
+        }
+        const mediaQuery = window.matchMedia( '( orientation: landscape )' );
+        if ( mediaQuery.matches ) {
+            for (let i = 2; i < 6; i++) {
+                revealButtons[i].addEventListener('click', expandButtonPanel, false);
+            }
+        }
+        else {
+            for (let i = 2; i < 6; i++) {
+                revealButtons[i].removeEventListener('click', expandButtonPanel);
+            }
+        }
+        //dom -> js
+
+    </script></body></html>
