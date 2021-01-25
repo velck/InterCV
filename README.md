@@ -1,6 +1,8 @@
 # InterCV
 
 InterCV stands for Interactive Curriculum Vitae. 
+An HTML document written in HTML, CSS, and JavaScript.
+Intended to become an interactive account of my professional history, featuring lessons I learnt therefrom. Also featuring a special section dedicated to a prospective employer the document could be sent to. The section will make an effort to convince the employer of how suitable for a position I am. 
 It is intended to be hosted on a personal domain. 
 
 The project has several aims: 
