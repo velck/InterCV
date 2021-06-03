@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+    <meta charset='utf-8'>
+    <title>lvck</title>
+    <style media='all'>
+        * {
+            color: Olive;
+            font-size: 20px;
+            background: SeaShell;
+        }
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, SeaShell, Teal, SeaShell), Teal;
+        }
+        header {
+            display: flex;
+        }
+        iframe {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border-width: 0px;
+        }
+        #employer-slide, #programmer-slide, #music-critic-slide, #master-student-slide, #workshop-mentor-slide, #cultural-worker-slide, #musician-slide {
+            height: 0px;
+            visibility: hidden;
+            text-align: center;
+        }
+        button {
+            border-width: 0px 0px 0px 0px;
+            /*background: linear-gradient(180deg, SeaShell, rgba(255, 245, 238, 0.151));*/
+            /*padding: 0px 0px 0px 0px;*/
+        }
+        .projection, #terminal-projection, #hourglass-projection, #os-projection, #github-projection {
+            height: 0px;
+            visibility: hidden;
+        }
+        .projects {
+            visibility: hidden;
+        }
+
+        #returns {
+            visibility: hidden;
+        }
+    </style><style media='screen and (orientation: portrait)'> 
+        * {font-size: 5vw;}
+        body {
+            margin: 0px;/*mobile-specific and tablet-portrait-specific*/
+        }
+        header {
+            /*flex-direction: row; mobile-portrait-specific and tablet-portrait-specific*/
+            padding: 0px 20px 0px 20px;
+            height: 10vh;/*mobile-portrait-specific*/
+        }
+        h1 {
+            margin: 0px;
+            font-size: 10vw;/*mobile-specific*/
+        }
+        .presentation {
+            margin-top: 3px;
+            height: 40vh;/*mobile-portrait-specific*/
+        }    
+        #programmer-slide {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+        #skills {
+            height: auto;
+            width: 100%;
+            padding: 20px;
+        }
+        #finding, #vision {
+            height: auto; 
+            width: 100%;
+        }
+        #terminal, #hourglass, #os, #github {width: 25%;}
+
+        #employer {
+            width: 100%;/*mobile-portrait-specific*/
+            height: 10vh;/*mobile-portrait-specific*/
+            margin-top: 3px;/*mobile-portrait-specific*/
+        }
+        
+        .professional-path {
+            margin-top: 3px;/*mobile-portrait-specific*/
+            width: 100vw;/*mobile-portrait-specific*/
+            display: grid;
+            grid-template-columns: repeat(4, minmax(10px, 25vw));/*mobile-portrait-specific*/
+            grid-template-rows: repeat(3, 10vh);/*mobile-portrait-specific*/
+            grid-template-areas: 
+                'programmer programmer programmer programmer'
+                'music-critic master-student workshop-mentor cultural-worker'
+                'musician musician musician musician';
+            row-gap: 3px;/*mobile-portrait-specific initially 0.4vh*/
+            letter-spacing: 0.4vh;/*mobile-all-specific*/
+            visibility: visible;
+            background: transparent;
+        }
+        #programmer {grid-area: programmer;}
+        #cultural-worker {grid-area: cultural-worker;}
+        #workshop-mentor {grid-area: workshop-mentor;}
+        #master-student {grid-area: master-student;}
+        #music-critic {grid-area: music-critic;}
+        #musician {grid-area: musician;}
+        
+        footer {
+            position: absolute;
+            bottom: 0px;/*mobile-portrait-specific*/
+            width: 100vw;/*mobile-portrait-specific*/
+            height: calc(10vh - 18px);/*mobile-portrait-specific*/
+            margin-top: 3px;
+        }
+    </style></head><body><header id='header'>
+        <h1 id='heading'>Lev</h1>
+        <!--<a href='#' id='about'>About</a>
+        <a href='#' id='contacts'>Contact</a>-->
+    </header><section class='presentation' id='presentation'>
+        <div id='employer-slide'>
+        </div>
+        <div id='programmer-slide'>
+            <div id='skills'>JavaScript, HTML, CSS</div>
+            <div id='finding'>Experience and passion  outweigh education certificates.</div>
+            <button type='button' class='projects' id='terminal'>Terminal</button>
+            <button type='button' class='projects' id='hourglass'>Hourglass</button>
+            <button type='button' class='projects' id='os'>OS</button>
+            <button type='button' class='projects' id='github'>GitHub</button>
+            <button type='button' class='projects' id='vision'>Vision</button>
+        </div>
+        <div id='music-critic-slide'>
+            Clear articulation makes a project worthwhile in the eyes of others.
+            <br>
+            Thorough revision is one of the most crucial steps of product improvement.
+        </div>
+        <div id='master-student-slide'>
+            Home is not indebtedness to one’s education. Rather, it is a place and a condition where one’s work is accepted.
+            <br>
+            Concealing one’s interests is never beneficial.
+        </div>
+        <div id='workshop-mentor-slide'>
+            Teaching and giving gets you future coworkers and friends, even if the subject is not always relevant for you.
+        </div>
+        <div id='cultural-worker-slide'>
+            Art – or cultural management – is far from being the only creative field.
+            <br>
+            Being overworked is counterproductive.
+        </div>
+        <div id='musician-slide'>
+            I like mastering a language and using it to construct unprecedented things.<br> 
+            Art is sublime, but it cannot replace the real world.
+        </div>
+    </section><section class='projection' id='projection'>
+        <div id='terminal-projection'></div>
+        <div id='hourglass-projection'></div>
+        <div id='os-projection'></div>
+        <div id='github-projection'></div>
+    </section><button type='button' class='reveals' id='employer'>why your company?</button><section class='professional-path' id='professional-path'>
+        <button type='button' class='reveals' id='programmer'>programmer</button>
+        <button type='button' class='reveals' id='music-critic'>music critic</button>
+        <button type='button' class='reveals' id='master-student'>master student</button>
+        <button type='button' class='reveals' id='workshop-mentor'>workshop mentor</button>
+        <button type='button' class='reveals' id='cultural-worker'>cultural worker</button>
+        <button type='button' class='reveals' id='musician'>musician</button>
+    </section><footer id='footer'><button type='button' class='returns' id='returns'>Return</button></footer><script>
+            
+        const mapWith = (fn) => (array, optional) => array.map(fn);//a function to replace most for loops;
+        const toDefaultStyle = (DOMelement) => DOMelement.style = '';
+        const toZeroHeight = (array) => array.style.setProperty('height', '0px');
+        const zeroHeightAndHide = (array) => {array.style.setProperty('height', '0px'); array.style.setProperty('visibility', 'hidden')};
+        const iframeDatabase = {'terminal': {'title': 'Terminal',
+                                            'src': 't'
+                                            },
+                               'hourglass': {'title': 'Hourglass',
+                                            'src': 'h'
+                                            },
+                               'os': {'title': 'OS',
+                                     'src': 'https://www.w3schools.com/'
+                                     },
+                                'github': {'title': 'GitHub',
+                                          'src': 'https://github.com/'
+                                        },
+                                'vision': {'title': 'Vision',
+                                          'src': 'https://vimeo.com/'
+                                        }
+                               };
+
+        //RETURN BUTTONS
+        const returnButton = document.querySelector("button[class^='returns']");
+        returnButton.addEventListener('click', returnToProgrammerSlide, false);
+        function returnToProgrammerSlide() {
+            //Get the iframe showing as part of the projection and remove it:
+            let iframeToRemove = document.querySelector('iframe');
+            iframeToRemove.remove();
+
+            //Get the projection currently showing and set the style to default, i.e. hide it:
+            const currentProjection = document.querySelector("#projection div[style*='visible']");
+            toDefaultStyle(currentProjection);
+            toDefaultStyle(projectionSurface);
+            //Make .presentation section visible: 
+            toDefaultStyle(presentationSurface);
+            
+            /*COMMENTED OUT IS BUGGY STUFF RELATED TO PORTFOLIO BUTTONS NOT SHOWING!
+            for (let i = 0; i < projectionButtons.length; i++) {projectionButtons[i].style.setProperty = ('visibility', 'visible');}
+            projectClass.style.setProperty('visibility', 'visible');
+            */
+            
+            //Make .professional-path visible: 
+            toDefaultStyle(professionalPath);
+            //Make reveal buttons (defined via .reveals) visible:
+            mapWith(toDefaultStyle)(revealButtons);
+            //Hide the return button:
+            toDefaultStyle(returnButton);
+            //Restore the programmer slide:
+            const programmerSlideToAppear = document.querySelector('#programmer-slide');
+            programmerSlideToAppear.style.setProperty('visibility', 'visible');
+            /*FIND A BETTER SOLUTION REGARDING HEIGHT*/
+            mapWith(array => { array.style.setProperty('visibility','visible'); array.style.setProperty('height','auto'); })(Array.from(document.querySelectorAll('#programmer-slide *')));
+        }
+        
+        
+        const projectionArray = Array.from(document.querySelectorAll("div[id$='projection']"));
+        const slideArray = Array.from(document.querySelectorAll("div[id$='slide']"));
+        //REVEAL BUTTONS AND LISTENERS:
+        const revealButtons = Array.from(document.querySelectorAll("button[class^='reveals']"));//provide a node list to loop through and install event listeners on all items;
+        const addRevealListener = mapWith((n) => n.addEventListener('click', reveal, false));
+        addRevealListener(revealButtons);
+        //REVEAL FUNCTION:
+        function reveal() {
+            //HIDE BEFORE REVEALING:
+            //Hide currently visible projections and slides first:
+            //Hide the projections (iframe hide to be implemented):
+            mapWith(toDefaultStyle)(projectionArray);
+            //Hide the slides - first all but the programmer slide, 
+            //then the programmer slide (the only one with descendant elements):
+            mapWith(toDefaultStyle)([slideArray[0]].concat(slideArray.slice(2, slideArray.length)));               
+            mapWith(toDefaultStyle)(Array.from(document.querySelectorAll('#programmer-slide, #programmer-slide *')));
+            //REVEAL:
+            //Get the slide to be revealed via event.currentTarget:
+            const slideID = `#${ event.currentTarget.getAttribute('id') }-slide`;
+            const slide = document.querySelector(slideID);
+            //Make the slide visible and enable the intended height:
+            slide.style.setProperty('visibility', 'visible');
+            slide.style.setProperty('height', '100%');
+            //Define the slide's descendant elements and make them visible:
+            const slideChildrenArray = Array.from(document.querySelectorAll(`${ slideID } *`));
+            mapWith(n => n.style.setProperty('visibility', 'visible'))(slideChildrenArray);
+        }
+        
+        //PROJECTION BUTTONS
+        const portrait = window.matchMedia( '( orientation: portrait )' );
+        const professionalPath = document.querySelector('.professional-path');
+        const presentationSurface = document.querySelector('.presentation');
+        const projectionSurface = document.querySelector('.projection'); 
+        
+        let projectionButtons = Array.from(document.querySelectorAll("button[class^='projects']"));
+        const addProjectListeners = mapWith((n) => n.addEventListener('click', project, false));
+        addProjectListeners(projectionButtons);
+        function project() {
+            const triggerButton = event.currentTarget;
+            console.log(triggerButton);
+            //retrieve the slide:
+
+            //hide presentation surface and professional-path sections:
+            if ( portrait.matches ) {
+                zeroHeightAndHide(professionalPath);
+                mapWith(zeroHeightAndHide)(revealButtons);
+            }
+            zeroHeightAndHide(presentationSurface);
+            
+            var preceedingSlide = triggerButton.parentNode;//perhaps the function should return it so that the returnHome fn can reinstate the elements
+            mapWith(zeroHeightAndHide)(Array.from(preceedingSlide.children));//THESE NEED TO BE DEFINED SO THAT THEY AN BE REINSTATED
+            zeroHeightAndHide(preceedingSlide);
+            
+            //projection surface to be extended with regard to device orientation:
+            if ( portrait.matches ) {projectionSurface.style.setProperty('height', '81.6vh'); console.log('okayish');}
+            else {projectionSurface.style.setProperty('height', '100%');}
+
+            //an appropriate section to be made visible:
+            let projectionID = `#${ event.currentTarget.getAttribute('id') }-projection`;
+            let projection = document.querySelector(projectionID);
+            projection.style.setProperty('visibility', 'visible');
+            if ( portrait.matches ) {projection.style.setProperty('height', '81.6vh');}
+            else {projection.style.setProperty('height', '100%'); /*projection.style.setProperty('width', '100%');*/}
+
+            //retrieve the iframe:
+            function insertIframe() {
+                const newIframe = document.createElement('iframe');
+                newIframe.setAttribute('sandbox', '');
+                const iframeNest = document.querySelector(`#${ triggerButton.getAttribute('id') }-projection`);
+                iframeNest.appendChild(newIframe);
+                const iframeDatabaseEntry = Object.entries(iframeDatabase[`${ triggerButton.getAttribute('id') }`]);
+                mapWith((x) => newIframe.setAttribute(`${ x[0] }`,`${ x[1] }`))(iframeDatabaseEntry);
+                } 
+            insertIframe();
+
+            //display the iframe:
+            /*let iframeDisplay = preceedingSlide;
+            iframeDisplay.style.setProperty('display', 'block');*/
+
+            //provide escape functionality:
+            returnButton.style.setProperty('visibility', 'visible');
+        }
+
+    </script></body></html>
